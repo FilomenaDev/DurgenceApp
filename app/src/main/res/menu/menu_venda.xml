@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_baseline_search"
+        android:title="Pesquiser"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/xx"
+        android:title="     "
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_baseline_flash_on"
+        android:title="Adiciona"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_list"
+        android:title="Adiciona"
+        app:showAsAction="always" />
+
+</menu>

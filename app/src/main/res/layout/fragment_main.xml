@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        map:layout_anchorGravity="left|center" />
+
+
+    <RelativeLayout
+        android:clickable="true"
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Design.BottomSheet.Modal"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bringUpBottomLayout">
+                    <ImageView
+                        android:padding="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/arrow_up_float"
+                        android:background="@color/purple_700" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioLayout">
+
+                    <co.ceryle.radiorealbutton.RadioRealButtonGroup
+                        android:id="@+id/radioRealButtonGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rrbg_animateDrawables_enter="overshoot"
+                        app:rrbg_animateDrawables_enterDuration="500"
+                        app:rrbg_animateDrawables_exit="overshoot"
+                        app:rrbg_animateDrawables_exitDuration="500"
+                        app:rrbg_animateDrawables_scale="1.2"
+                        app:rrbg_animateTexts_enter="overshoot"
+                        app:rrbg_animateTexts_enterDuration="500"
+                        app:rrbg_bottomLineColor="@color/purple_500"
+                        app:rrbg_buttonsPaddingTop="14dp"
+                        app:rrbg_selectorAboveOfBottomLine="false"
+                        app:rrbg_selectorColor="@color/purple_500"
+                        app:rrbg_selectorSize="6dp"
+                        app:rrbg_selectorTop="true">
+                        <co.ceryle.radiorealbutton.RadioRealButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:rrb_drawable="@mipmap/ic_enferm"
+                            app:rrb_drawableGravity="top"
+                            app:rrb_drawableHeight="70dp"
+                            app:rrb_drawableWidth="50dp"
+                            app:rrb_rippleColor="@color/purple_500"
+                            app:rrb_text=" 116 "
+                            app:rrb_textColor="@android:color/black"
+                            app:rrb_textSize="12sp"/>
+                        <co.ceryle.radiorealbutton.RadioRealButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:rrb_drawable="@drawable/ic_uber_xl"
+                            app:rrb_drawableGravity="top"
+                            app:rrb_drawableHeight="70dp"
+                            app:rrb_drawableWidth="50dp"
+                            app:rrb_rippleColor="@color/purple_500"
+                            app:rrb_text=" 113 "
+                            app:rrb_textColor="@android:color/black"
+                            app:rrb_textSize="12sp"/>
+                        <co.ceryle.radiorealbutton.RadioRealButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:rrb_drawable="@mipmap/ic_fireman"
+                            app:rrb_drawableGravity="top"
+                            app:rrb_drawableHeight="70dp"
+                            app:rrb_drawableWidth="50dp"
+                            app:rrb_rippleColor="@color/purple_500"
+                            map:rrb_text=" 115 "
+                            app:rrb_textColor="@android:color/black"
+                            app:rrb_textSize="12sp"/>
+                    </co.ceryle.radiorealbutton.RadioRealButtonGroup>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/request"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/purple_700"
+                    android:padding="20sp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="Solicita Ajuda"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

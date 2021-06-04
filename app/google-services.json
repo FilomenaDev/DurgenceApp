@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "706532201158",
+    "firebase_url": "https://durgence-e5630-default-rtdb.firebaseio.com",
+    "project_id": "durgence-e5630",
+    "storage_bucket": "durgence-e5630.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706532201158:android:e8b9dad3d07c840e03bdc7",
+        "android_client_info": {
+          "package_name": "com.filomenadeveloper.durgente_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706532201158-g0m198kete4ocbtjbja2egrt3oqnvful.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.filomenadeveloper.durgente_app",
+            "certificate_hash": "fa03843409d209bc56315b41805097941c6ce72c"
+          }
+        },
+        {
+          "client_id": "706532201158-a7ee83olh1kuelo09haaffo9uoittqdt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi_K2cLonpCKCbdWcavSEnUnQ3n82nkTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706532201158-a7ee83olh1kuelo09haaffo9uoittqdt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
