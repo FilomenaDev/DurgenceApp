@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/alet_button"
+            android:src="@drawable/girl_painting1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:elevation="5dp"
+            tools:ignore="UnusedAttribute" />
+        <ImageButton
+            android:id="@+id/alet_button1"
+            android:layout_width="120dp"
+            android:elevation="5dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="18dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:src="@drawable/img_friend1" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/me"
+            android:text="Pra Me"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Mais Pessoas"
+            android:layout_toRightOf="@+id/me"
+            android:layout_marginLeft="60dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/quant"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:hint="Numero de Pessoal"
+        android:padding="6dp"
+        android:textColorHint="@color/black"
+        android:background="@drawable/input_quadra"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/BtnCancelar"
+            android:layout_width="match_parent"
+            android:text="Cancela"
+            android:textSize="14dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+
+</LinearLayout>

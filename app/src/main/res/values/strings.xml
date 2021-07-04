@@ -14,14 +14,41 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_maps">Map</string>
 
-    <string name="menu_product">Histórico</string>
+    <string name="menu_product">Histórico Clínico</string>
+    <string name="menu_parente">Parentes Próximos</string>
     <string name="menu_venda">Início</string>
     <string name="menu_catalogo">Mensagem</string>
     <string name="menu_contacto">Contacto de familíares</string>
 
-    <string name="tab_text_1">Conversas</string>
+    <string name="tab_text_1">Add Contactos</string>
     <string name="tab_text_2">Servicos</string>
     <string name="tab_text_3">Categoria</string>
+
+    <string-array name="sanguino_array">
+        <item>Tipo sanguíneo</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>Não conheço</item>
+    </string-array>
+
+    <string-array name="grauparentesco_array">
+        <item>Grau de parentesco</item>
+        <item>Pãi</item>
+        <item>Mãe</item>
+        <item>Irmão</item>
+        <item>Irmã</item>
+        <item>Tio/a</item>
+        <item>Primo/a</item>
+        <item>Sobrinho/a</item>
+        <item>Outros</item>
+
+    </string-array>
 
     <string name="style_json">
     [

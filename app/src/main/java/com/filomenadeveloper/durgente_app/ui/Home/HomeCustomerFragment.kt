@@ -6,12 +6,12 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import co.ceryle.radiorealbutton.RadioRealButtonGroup
 import com.filomenadeveloper.durgente_app.Common
+import com.filomenadeveloper.durgente_app.Model.Solicitation
 import com.filomenadeveloper.durgente_app.R
 import com.firebase.geofire.GeoFire
 import com.firebase.geofire.GeoLocation
@@ -33,6 +33,8 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
 
@@ -46,9 +48,14 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mLocationCallback: LocationCallback
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
+    private lateinit var mRequest : Button
+    private lateinit var mRadioButton: RadioRealButtonGroup
+    private lateinit var requestService: String
+
     //sistema online
     private lateinit var onlineRef: DatabaseReference
     private lateinit var correntUserRef: DatabaseReference
+    private lateinit var correnRequestRef: DatabaseReference
     private lateinit var customerLocationRef: DatabaseReference
     private lateinit var geofire: GeoFire
 
@@ -62,6 +69,7 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
         vendaViewModel = ViewModelProvider(this).get(VendaViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_main, container, false)
 
+        correnRequestRef = FirebaseDatabase.getInstance().reference
         init()
 
         mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
@@ -82,6 +90,32 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
         mBottomSheetBehavior!!.peekHeight = 120
 
 
+        mRequest = root.findViewById(R.id.request)
+        mRadioButton = root.findViewById(R.id.radioRealButtonGroup)
+        mRadioButton.position = 0
+
+        mRequest.setOnClickListener {
+
+            when(mRadioButton.position){
+                0 -> requestService = "116"
+                1 -> requestService = "113"
+                2 -> requestService = "115"
+            }
+
+            mRequest.text = "Chamando por $requestService"
+            val model = Solicitation()
+            model.orgao = requestService
+            model.solicitant = FirebaseAuth.getInstance().currentUser.uid
+            model.local = "Luanda"
+            model.datah = getCurrentDate()
+            correnRequestRef.child(Common.OCORRENCIA_REF).push().setValue(model).
+            addOnSuccessListener {
+
+            }.addOnFailureListener {
+
+            }
+
+        }
 
         return root
     }
@@ -120,9 +154,11 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
     @SuppressLint("MissingPermission", "UseRequireInsteadOfGet")
     private fun init() {
 
-        onlineRef = FirebaseDatabase.getInstance().getReference().child(".info/conectado")
-        customerLocationRef = FirebaseDatabase.getInstance().getReference().child(Common.CUSTOMER_LOCATION_REF)
-        correntUserRef = FirebaseDatabase.getInstance().getReference().child(Common.CUSTOMER_LOCATION_REF)
+        onlineRef = FirebaseDatabase.getInstance().reference.child(".info/conectado")
+        customerLocationRef = FirebaseDatabase.getInstance().reference.child(Common.CUSTOMER_LOCATION_REF)
+        
+        correntUserRef = FirebaseDatabase.getInstance().reference
+                .child(Common.CUSTOMER_LOCATION_REF)
                 .child(FirebaseAuth.getInstance().currentUser.uid)
         geofire = GeoFire(customerLocationRef)
 
@@ -146,8 +182,7 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
                 ){ key: String?, error: DatabaseError? ->
                     if (error != null)
                         Snackbar.make(mapFragment.requireView(),error.message,Snackbar.LENGTH_SHORT).show()
-                    
-                      //  Snackbar.make(mapFragment.requireView(),"Esta online",Snackbar.LENGTH_SHORT).show()
+
                 }
 
             }
@@ -156,6 +191,17 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!)
         fusedLocationProviderClient.requestLocationUpdates(mLocationRequest,mLocationCallback,Looper.myLooper())
+    }
+
+    fun getCurrentDate(): String {
+        val data: Date = Calendar.getInstance().time
+        val formatter: SimpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
+        val tody: String = formatter.format(data)
+
+        val currentDataTime: Calendar = Calendar.getInstance()
+        val hora: SimpleDateFormat = SimpleDateFormat("hh:mm a")
+        val currentTime: String = hora.format(currentDataTime.time)
+        return "$tody $currentTime"
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {

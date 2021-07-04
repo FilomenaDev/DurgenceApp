@@ -8,10 +8,13 @@
             android:id="@+id/nav_inicio"
             android:title="@string/menu_venda" />
         <item
+            android:id="@+id/nav_menssagem"
+            android:title="@string/menu_catalogo" />
+        <item
             android:id="@+id/nav_historico"
             android:title="@string/menu_product" />
         <item
-            android:id="@+id/nav_menssagem"
-            android:title="@string/menu_catalogo" />
+            android:id="@+id/nav_parentes"
+            android:title="@string/menu_parente" />
     </group>
 </menu>

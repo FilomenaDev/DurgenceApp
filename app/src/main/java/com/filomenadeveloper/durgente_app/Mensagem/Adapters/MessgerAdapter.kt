@@ -10,6 +10,7 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.filomenadeveloper.durgente_app.Mensagem.Models.Chat
 import com.filomenadeveloper.durgente_app.Model.CustomerInfo
 import com.filomenadeveloper.durgente_app.R
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-class MessgerAdapter (val mChat: ArrayList<Chat>,val mContext: Context,val imagurl: String): RecyclerView.Adapter<MessgerAdapter.ViewHolder>() {
+class MessgerAdapter (val mChat: ArrayList<Chat>,val mContext: Context): RecyclerView.Adapter<MessgerAdapter.ViewHolder>() {
 
     val MSG_TYPE_LEFT = 0
     val MSG_TYPE_RIGHT = 1
@@ -54,7 +55,7 @@ class MessgerAdapter (val mChat: ArrayList<Chat>,val mContext: Context,val imagu
         if(chats.type == "IMAGE"){
             holder.loyout_imagem.visibility = View.VISIBLE
             holder.loyout_text.visibility = View.GONE
-            Glide.with(mContext).load(chats.uri).into(holder.chat_imagem)
+            Glide.with(mContext).load(chats.uri).apply(RequestOptions()).into(holder.chat_imagem)
 
             }else {
             holder.loyout_imagem.visibility = View.GONE

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:id="@+id/addParent"
+    tools:context=".ui.Historico.HistoricoFragment">
+
+    <LinearLayout
+        android:layout_margin="8dp"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/nomeP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColorHint="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="26dp"
+            android:hint="Nome completo"
+            android:inputType="text"
+            android:background="@drawable/input_design"
+            tools:ignore="MissingConstraints"
+            android:layout_gravity="start" />
+        <EditText
+            android:id="@+id/telefoneP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColorHint="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="16dp"
+            android:hint="Numero de telefone"
+            android:inputType="phone"
+            android:background="@drawable/input_design"
+            tools:ignore="MissingConstraints"
+            android:layout_gravity="start" />
+        <EditText
+            android:id="@+id/adreccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColorHint="@android:color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="16dp"
+            android:hint="Endereço"
+            android:background="@drawable/input_design"
+            tools:ignore="MissingConstraints"
+            android:layout_gravity="start" />
+
+        <Spinner
+            android:id="@+id/spinner_grau_parent"
+            android:background="@drawable/input_design"
+            android:padding="8dp"
+            android:layout_marginTop="16dp"
+            android:textAlignment="textStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start" />
+
+        <Button
+            android:id="@+id/btn_salveP"
+            android:background="@drawable/input_button"
+            android:layout_marginTop="30dp"
+            android:text="Salvar"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/cancel_contact"
+            android:layout_marginTop="18dp"
+            android:text="Cancelar"
+            android:background="@drawable/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -80,7 +80,7 @@
                         <co.ceryle.radiorealbutton.RadioRealButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:rrb_drawable="@drawable/ic_uber_xl"
+                            app:rrb_drawable="@drawable/polce"
                             app:rrb_drawableGravity="top"
                             app:rrb_drawableHeight="70dp"
                             app:rrb_drawableWidth="50dp"
@@ -111,7 +111,7 @@
                     android:padding="20sp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:text="Solicita Ajuda"
+                    android:text="Chamar emergência"
                     android:textColor="@android:color/black" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

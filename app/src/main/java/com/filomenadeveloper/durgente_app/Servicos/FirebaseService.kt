@@ -20,9 +20,9 @@ class FirebaseService {
     }
 
     fun updateImagemToFirebaseStore(uri:Uri,onCallback: OnCallback){
-        val storageReference: StorageReference = FirebaseStorage.getInstance().reference.child("imageChat/"+System.currentTimeMillis()+"_"+getFileExtention(uri))
+        val storageReference: StorageReference = FirebaseStorage.getInstance().reference
+            .child("imageChat/"+System.currentTimeMillis()+"_"+getFileExtention(uri))
         storageReference.putFile(uri).addOnCompleteListener { task ->
-           // var urltask : Task<Uri> = it.storage.downloadUrl
            if(task.isSuccessful) {
                storageReference.downloadUrl.addOnSuccessListener { ur->
                    val downloaded: String = ur.toString()

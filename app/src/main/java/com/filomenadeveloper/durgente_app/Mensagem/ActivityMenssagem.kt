@@ -59,7 +59,6 @@ class ActivityMenssagem : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar1)
         setSupportActionBar(toolbar)
 
-        //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.setNavigationOnClickListener {
             finish()
         }
@@ -167,7 +166,7 @@ class ActivityMenssagem : AppCompatActivity() {
                     ) {
                         mChat.add(chat)
                     }
-                    messegerAdpter = MessgerAdapter(mChat, this@ActivityMenssagem, imagemurl)
+                    messegerAdpter = MessgerAdapter(mChat, this@ActivityMenssagem)
                     recyclerView!!.adapter = messegerAdpter
                 }
             }
@@ -208,6 +207,7 @@ class ActivityMenssagem : AppCompatActivity() {
                     val progressbar: ProgressDialog = ProgressDialog(this@ActivityMenssagem)
                     progressbar.setMessage("Enviando Imagem")
                     progressbar.show()
+
                     FirebaseService(this@ActivityMenssagem).updateImagemToFirebaseStore(
                             resultUri,
                             object :

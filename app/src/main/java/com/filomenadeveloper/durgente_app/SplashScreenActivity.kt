@@ -54,13 +54,7 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_screen_splash)
-
-      //  progress_bar = findViewById(R.id.progress_bar)
-
-
-
         init()
-
     }
 
     private fun init() {
