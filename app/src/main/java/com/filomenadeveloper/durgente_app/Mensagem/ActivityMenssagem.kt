@@ -22,6 +22,7 @@ import com.filomenadeveloper.durgente_app.Mensagem.Dialog.DialogReviewSendImage
 import com.filomenadeveloper.durgente_app.Mensagem.Dialog.DialogReviewSendImage.OnCallback
 import com.filomenadeveloper.durgente_app.Mensagem.Models.Chat
 import com.filomenadeveloper.durgente_app.Model.CustomerInfo
+import com.filomenadeveloper.durgente_app.Model.Orgao
 import com.filomenadeveloper.durgente_app.R
 import com.filomenadeveloper.durgente_app.Servicos.FirebaseService
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -58,6 +59,7 @@ class ActivityMenssagem : AppCompatActivity() {
         setContentView(R.layout.activity_messenger)
         val toolbar: Toolbar = findViewById(R.id.toolbar1)
         setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         toolbar.setNavigationOnClickListener {
             finish()
@@ -93,12 +95,13 @@ class ActivityMenssagem : AppCompatActivity() {
             }
             text_enviar.setText("")
         }
-        reference = FirebaseDatabase.getInstance().reference.child(Common.USUARIO).child(Common.CUSTOMER_INFO_REFERENCE)
+
+        reference = FirebaseDatabase.getInstance().reference.child(Common.USUARIO).child(Common.CUSTOMER_INFO_ORGAO)
             .child(userid!!)
         reference!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(@NonNull dataSnapshot: DataSnapshot) {
-                val user = dataSnapshot.getValue(CustomerInfo::class.java)!!
-                textView.setText(user.firstName)
+                val user = dataSnapshot.getValue(Orgao::class.java)!!
+                textView.setText(user.number)
                 if (user.avatar == "default") {
                     imageView.setImageResource(R.mipmap.ic_launcher_round)
                 } else {

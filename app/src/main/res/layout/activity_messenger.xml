@@ -17,7 +17,7 @@
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/purple_700"
             app:popupTheme="@style/Theme.Durgente_App.PopupOverlay" >
 
             <ImageView
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bttom"
-        android:padding="16dp"
+        android:padding="10dp"
         android:background="@drawable/relative_message"
         android:layout_marginBottom="5dp"
         android:layout_toLeftOf="@+id/btn_send"

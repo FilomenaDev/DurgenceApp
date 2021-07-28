@@ -12,7 +12,10 @@ import com.filomenadeveloper.durgente_app.R
 
 class Parent_Adapter (val mParent: ArrayList<Parent>, val mContext: Context): RecyclerView.Adapter<Parent_Adapter.ViewHolder>() {
 
-
+    fun removeAt(position: Int) {
+        mParent.removeAt(position)
+        notifyItemRemoved(position)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(mContext).inflate(R.layout.item_parent, parent, false)
         return ViewHolder(v)

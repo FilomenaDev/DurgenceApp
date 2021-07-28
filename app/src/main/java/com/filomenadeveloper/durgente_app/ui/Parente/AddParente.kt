@@ -6,12 +6,14 @@ import android.util.Log
 import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.FragmentTransaction
 import com.filomenadeveloper.durgente_app.Common
 import com.filomenadeveloper.durgente_app.MainActivity
 import com.filomenadeveloper.durgente_app.R
 import com.filomenadeveloper.durgente_app.Utils.UserUtils
 import com.firebase.ui.auth.AuthUI
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -38,6 +40,11 @@ class AddParente: AppCompatActivity() {
         nome  = findViewById(R.id.nomeP)
         phone = findViewById(R.id.telefoneP)
         adrecces = findViewById(R.id.adreccess)
+        val outlinedTextField: TextInputLayout = findViewById(R.id.outlinedTextField)
+
+        val inputText = outlinedTextField.editText?.text.toString()
+
+        outlinedTextField.editText?.doOnTextChanged { inputText, _, _, _ ->  }
 
         btn_salvar.setOnClickListener {
             SaveParents()

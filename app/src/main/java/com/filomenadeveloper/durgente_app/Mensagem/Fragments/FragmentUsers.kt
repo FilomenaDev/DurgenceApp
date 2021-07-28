@@ -14,6 +14,7 @@ import com.filomenadeveloper.durgente_app.Common
 import com.filomenadeveloper.durgente_app.Mensagem.Adapters.UserAdapter
 import com.filomenadeveloper.durgente_app.Mensagem.Models.ChatList
 import com.filomenadeveloper.durgente_app.Model.CustomerInfo
+import com.filomenadeveloper.durgente_app.Model.Orgao
 import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -24,7 +25,7 @@ class FragmentUsers : Fragment() {
 
    private lateinit var v: View
     private lateinit var uselist: List<ChatList>
-    private var mUser: ArrayList<CustomerInfo> = ArrayList()
+    private var mUser: ArrayList<Orgao> = ArrayList()
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var adpter: UserAdapter
     private lateinit var reference: DatabaseReference
@@ -45,12 +46,12 @@ class FragmentUsers : Fragment() {
 
     private fun LerUsuarios() {
         val firebaseUser = FirebaseAuth.getInstance().currentUser
-        val reference = FirebaseDatabase.getInstance().reference.child(Common.USUARIO).child(Common.CUSTOMER_INFO_REFERENCE)
+        val reference = FirebaseDatabase.getInstance().reference.child(Common.USUARIO).child(Common.CUSTOMER_INFO_ORGAO)
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(@NonNull dataSnapshot: DataSnapshot) {
                 mUser!!.clear()
                 for (snapshot in dataSnapshot.children) {
-                    val user = snapshot.getValue(CustomerInfo::class.java)!!
+                    val user = snapshot.getValue(Orgao::class.java)!!
                     assert(firebaseUser != null)
                     if (!user.id.equals(firebaseUser!!.uid)) { //erro
                         mUser.add(user)

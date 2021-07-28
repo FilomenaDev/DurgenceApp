@@ -16,6 +16,7 @@ import com.filomenadeveloper.durgente_app.Common
 import com.filomenadeveloper.durgente_app.Mensagem.Adapters.UserAdapter
 import com.filomenadeveloper.durgente_app.Mensagem.Models.ChatList
 import com.filomenadeveloper.durgente_app.Model.CustomerInfo
+import com.filomenadeveloper.durgente_app.Model.Orgao
 import com.filomenadeveloper.durgente_app.Utils.UserUtils
 import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
@@ -27,7 +28,7 @@ import com.google.firebase.iid.FirebaseInstanceId
 class FragmentChat: Fragment() {
 
     private lateinit var v: View
-    private var mUser: ArrayList<CustomerInfo> = ArrayList()
+    private var mUser: ArrayList<Orgao> = ArrayList()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adpter: UserAdapter
     private lateinit var fireUser: FirebaseUser
@@ -64,12 +65,12 @@ class FragmentChat: Fragment() {
 
     private fun ChatList() {
         mUser = ArrayList()
-        reference = FirebaseDatabase.getInstance().reference.child(Common.USUARIO).child(Common.CUSTOMER_INFO_REFERENCE)
+        reference = FirebaseDatabase.getInstance().reference.child(Common.USUARIO).child(Common.CUSTOMER_INFO_ORGAO)
         reference!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(@NonNull dataSnapshot: DataSnapshot) {
                 mUser.clear()
                 for (snapshot in dataSnapshot.children) {
-                    val user = snapshot.getValue(CustomerInfo::class.java)!!
+                    val user = snapshot.getValue(Orgao::class.java)!!
                     for (chatList:ChatList in userlist) {
                         if (user.id == chatList.id) {
                             mUser.add(user)

@@ -52,16 +52,24 @@ class MessgerAdapter (val mChat: ArrayList<Chat>,val mContext: Context): Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val chats: Chat = mChat[position]
-        if(chats.type == "IMAGE"){
-            holder.loyout_imagem.visibility = View.VISIBLE
-            holder.loyout_text.visibility = View.GONE
-            Glide.with(mContext).load(chats.uri).apply(RequestOptions()).into(holder.chat_imagem)
-
-            }else {
-            holder.loyout_imagem.visibility = View.GONE
-            holder.loyout_text.visibility = View.VISIBLE
-            holder.show_msg.text = chats.mensagem
-        }
+        var p = chats.type
+        when(p){
+            "TEXT"->{
+                holder.loyout_imagem.visibility = View.GONE
+                holder.loyout_text.visibility = View.VISIBLE
+                holder.show_msg.text = chats.mensagem
+            }
+           "IMAGE"->{
+               holder.loyout_imagem.visibility = View.VISIBLE
+               holder.loyout_text.visibility = View.GONE
+               Glide.with(mContext).load(chats.uri).into(holder.chat_imagem)
+           }
+            else ->{
+                holder.loyout_imagem.visibility = View.GONE
+                holder.loyout_text.visibility = View.VISIBLE
+                holder.show_msg.text = chats.mensagem
+            }
+           }
 
     }
 

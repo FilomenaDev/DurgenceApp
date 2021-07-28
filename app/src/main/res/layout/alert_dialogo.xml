@@ -9,25 +9,45 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:text="Para quem é a chamada?"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/perguntar"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:layout_height="wrap_content">
         <ImageButton
-            android:id="@+id/alet_button"
-            android:src="@drawable/girl_painting1"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:id="@+id/btn_Mim"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:elevation="5dp"
+            android:src="@drawable/icons_user"
             tools:ignore="UnusedAttribute" />
         <ImageButton
-            android:id="@+id/alet_button1"
-            android:layout_width="120dp"
+            android:id="@+id/btn_outro"
+            android:layout_width="100dp"
             android:elevation="5dp"
-            android:layout_height="120dp"
-            android:layout_marginLeft="18dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:src="@drawable/img_friend1" />
+            android:src="@drawable/icons_user" />
     </LinearLayout>
     <RelativeLayout
         android:layout_marginTop="2dp"
@@ -37,35 +57,22 @@
 
         <TextView
             android:id="@+id/me"
-            android:text="Pra Me"
-            android:layout_marginLeft="10dp"
-            android:padding="5dp"
+            android:text="PARA MIM"
+            android:layout_marginLeft="15dp"
+            android:padding="2dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:text="Mais Pessoas"
+            android:text="OUTRA PESSOA"
             android:layout_toRightOf="@+id/me"
             android:layout_marginLeft="60dp"
-            android:padding="5dp"
+            android:padding="2dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     </RelativeLayout>
-    <TextView
-        android:id="@+id/quant"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:hint="Numero de Pessoal"
-        android:padding="6dp"
-        android:textColorHint="@color/black"
-        android:background="@drawable/input_quadra"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <LinearLayout
         android:layout_marginTop="50dp"
         android:gravity="center"
@@ -75,7 +82,9 @@
         <Button
             android:id="@+id/BtnCancelar"
             android:layout_width="match_parent"
+            android:background="@drawable/input_button"
             android:text="Cancela"
+            android:textColor="@color/white"
             android:textSize="14dp"
             android:layout_height="match_parent"/>
     </LinearLayout>

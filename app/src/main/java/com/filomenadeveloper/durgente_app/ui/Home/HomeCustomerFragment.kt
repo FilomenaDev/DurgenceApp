@@ -1,6 +1,7 @@
 package com.filomenadeveloper.durgente_app.ui.Home
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.os.Bundle
 import android.os.Looper
 import android.view.LayoutInflater
@@ -61,6 +62,7 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
 
 
 
+    @SuppressLint("WrongViewCast")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -102,22 +104,45 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
                 2 -> requestService = "115"
             }
 
-            mRequest.text = "Chamando por $requestService"
-            val model = Solicitation()
-            model.orgao = requestService
-            model.solicitant = FirebaseAuth.getInstance().currentUser.uid
-            model.local = "Luanda"
-            model.datah = getCurrentDate()
-            correnRequestRef.child(Common.OCORRENCIA_REF).push().setValue(model).
-            addOnSuccessListener {
+            val dialog = Dialog(context!!)
+            dialog.setContentView(R.layout.alert_dialogo)
+            val nu_emerg = dialog.findViewById(R.id.perguntar) as TextView
+            val btn_Mim = dialog.findViewById(R.id.btn_Mim) as ImageButton
+            val btn_outro = dialog.findViewById(R.id.btn_outro) as ImageButton
+            val btn_cancal = dialog.findViewById(R.id.BtnCancelar) as Button
+            nu_emerg.setText(requestService)
 
-            }.addOnFailureListener {
+            btn_Mim.setOnClickListener {
 
+            Solicitatione("MIM")
+                dialog.dismiss()
             }
+
+            btn_outro.setOnClickListener {
+                Solicitatione("OUTRO")
+                dialog.dismiss()
+            }
+            dialog.show()
 
         }
 
         return root
+    }
+
+    private fun Solicitatione(para:String){
+        val model = Solicitation()
+        model.orgao = requestService
+        model.solicitant = FirebaseAuth.getInstance().currentUser.uid
+        model.local = "Luanda"
+        model.datah = getCurrentDate()
+        model.destino = para
+        correnRequestRef.child(Common.SOLICITATION_REF).push().setValue(model).
+        addOnSuccessListener {
+            mRequest.text = "Chamando por $requestService"
+        }.addOnFailureListener {
+
+        }
+
     }
 
     var previousRequestBol = true
@@ -187,7 +212,6 @@ class HomeCustomerFragment : Fragment(), OnMapReadyCallback {
 
             }
         }
-
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context!!)
         fusedLocationProviderClient.requestLocationUpdates(mLocationRequest,mLocationCallback,Looper.myLooper())

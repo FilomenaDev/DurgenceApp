@@ -34,7 +34,7 @@ class MessegerFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_messeger, container, false)
         val sectionsPagerAdapter = SectionsPagerAdapter(context!!, fragmentManager!!)
         val viewPager: ViewPager = root.findViewById(R.id.view_pager)
-        sectionsPagerAdapter.AddFragment(FragmentUsers(),"Contactos")
+        sectionsPagerAdapter.AddFragment(FragmentUsers(),"Emergências")
         sectionsPagerAdapter.AddFragment(FragmentChat(),"Conversas")
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = root.findViewById(R.id.tabs)

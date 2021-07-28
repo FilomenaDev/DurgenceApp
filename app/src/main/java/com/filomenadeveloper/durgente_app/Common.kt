@@ -59,8 +59,11 @@ object Common {
     val TOKEN_REFERENCE: String = "Token"
     val CUSTOMER_LOCATION_REF: String = "CustomerLocation"
     val OCORRENCIA_REF: String = "Ocorrencias"
+    val SOLICITATION_REF: String = "Solicitations"
     var correntUser : CustomerInfo?=null
     val CUSTOMER_INFO_REFERENCE: String = "RequesterInfo"
+    val CUSTOMER_INFO_ORGAO: String = "Orgao"
+    val CUSTOMER_STORY_REFERENCE: String = "RequesterStory"
     val USUARIO: String = "Users"
     val Parents: String = "Parents"
     val IMAGE_INFO: String = "imageChat/"

@@ -66,6 +66,34 @@
     <item name="listPreferredItemHeightSmall">60dp</item>
     <!-- item size in menu-->
 </style>
+    <style name="Theme.App" parent="Theme.MaterialComponents">
+        ...
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorOnSurface">@color/purple_500</item>
+        <item name="colorError">@color/purple_500</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+
+    </style>
+
+
+    <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.App.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">serif</item>
+        <item name="android:fontFamily">sans-seri</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox"/>
 
     <style name="Theme.Durgente_App.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

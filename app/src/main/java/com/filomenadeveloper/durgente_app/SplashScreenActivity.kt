@@ -48,7 +48,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var database: FirebaseDatabase
     private lateinit var customerInfoReeq: DatabaseReference
-    private lateinit var progress_bar: ProgressBar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

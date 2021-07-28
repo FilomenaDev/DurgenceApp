@@ -11,13 +11,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.filomenadeveloper.durgente_app.Mensagem.ActivityMenssagem
 import com.filomenadeveloper.durgente_app.Model.CustomerInfo
+import com.filomenadeveloper.durgente_app.Model.Orgao
 import com.filomenadeveloper.durgente_app.R
 import com.firebase.ui.auth.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
-class UserAdapter  (val mUser: ArrayList<CustomerInfo>,val mContext:Context): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter  (val mUser: ArrayList<Orgao>,val mContext:Context): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     val MSG_TYPE_LEFT = 0
     val MSG_TYPE_RIGHT = 1
@@ -43,8 +44,8 @@ class UserAdapter  (val mUser: ArrayList<CustomerInfo>,val mContext:Context): Re
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val user: CustomerInfo = mUser[position]
-        holder.nome.text = user.firstName
+        val user: Orgao = mUser[position]
+        holder.nome.text = user.number
         if (user.avatar.equals("default")) {
             holder.imagem.setImageResource(R.mipmap.ic_launcher_round)
         } else {
