@@ -44,7 +44,7 @@ class AddParente: AppCompatActivity() {
 
         val inputText = outlinedTextField.editText?.text.toString()
 
-        outlinedTextField.editText?.doOnTextChanged { inputText, _, _, _ ->  }
+        outlinedTextField.editText?.doOnTextChanged { _, _, _, _ -> }
 
         btn_salvar.setOnClickListener {
             SaveParents()
